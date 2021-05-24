@@ -12,7 +12,7 @@ import './Header.css'
 const NavContainer = styled.nav`
   display:flex;
   position:sticky;
-  top:80px;
+  top:5px;
   background:#ffff;
   width:1033px;
   height:60px;
