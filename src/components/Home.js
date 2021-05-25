@@ -1,4 +1,8 @@
 import React from 'react'
+import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
+import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import styled from 'styled-components';
 
 
@@ -48,8 +52,79 @@ const PostContainer = styled.div`
     top:110px;
     border-radius: 4px;
    position:absolute;
+   
 `
-
+const PostTopWrapp = styled.div`
+  height:24px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  input{
+     margin-left:4px;
+     background:#ff6e14
+   }
+   label{
+     margin-left:4px;
+   }
+`
+const PostMiddlepWrapp = styled.div`
+    height:40px;
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+`
+const CatWrapp = styled.div`
+    height:100%;
+    width:204.69px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    background: #f4f6f7;
+    
+    span{
+      color:#000;
+      font-size:14px;
+      margin:0px;
+      padding:0px;
+    }
+`
+const SearchWrapp = styled.div`
+    height:100%;
+    width:338.19px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    background: #f4f6f7;
+    margin-left:1px;
+    border-left: 1px solid rgb(168, 180, 192);
+    
+    input{
+      border-width:0px;
+      outline:none;
+      background: #f4f6f7;
+      height:40px;
+    }
+`
+const LocationWrapp = styled.div`
+    height:100%;
+    width:339.09px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    background: #f4f6f7;
+    margin-left:10px;
+    
+    
+    input{
+      border-width:0px;
+      outline:none;
+      background: #f4f6f7;
+      height:40px;
+    }
+`
+const  PostBottomWrapp = styled.div``
 
 
 const Home = () => {
@@ -59,7 +134,34 @@ const Home = () => {
         <span>Achetez ou vendez votre voiture avec le paiement sécurisé !</span>
         <p>Trouvez la bonne affaire parmi les millions de petites annonces leboncoin</p>
         <PostContainer>
-
+          <PostTopWrapp>
+            <div>
+              <input type="radio" id="offres" name="drone" value="offres" checked />
+              <label for="offeres">Offres</label>
+            </div>
+            <div>
+              <input type="radio" id="demande" name="drone" value="demande" />
+              <label for="demande">Demande</label>
+            </div>
+          </PostTopWrapp>
+          <PostMiddlepWrapp>
+            <CatWrapp>
+              <FormatListBulletedOutlinedIcon  />
+              <span>Categories</span>
+              <KeyboardArrowDownOutlinedIcon style={{marginTop:'4px',marginLeft:'44px',fontSize:'30px',fill: 'rgb(168, 180, 192)',
+                color: 'rgb(168, 180, 192)'}}/>
+            </CatWrapp>
+            <SearchWrapp>
+              <SearchOutlinedIcon style={{fill: 'rgb(168, 180, 192)',
+                color: 'rgb(168, 180, 192)'}}/>
+              <input type="text"  placeholder='Que cherchez-vous ?'/>
+            </SearchWrapp>
+            <LocationWrapp>
+            <RoomOutlinedIcon style={{fill: 'rgb(168, 180, 192)',
+                color: 'rgb(168, 180, 192)'}} />
+              <input type="text"  placeholder='Saisissez une ville et un rayon '/>
+            </LocationWrapp>
+          </PostMiddlepWrapp>
         </PostContainer>
       </TopContainer>
     </HomeContainer>
