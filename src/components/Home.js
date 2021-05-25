@@ -23,7 +23,18 @@ const TopContainer = styled.div`
     width:1033px;
     max-width: 1066px;
     overflow:hidden;
-  
+span{
+  color:#ffff;
+  text-align:center;
+  margin:4rem 100px;
+  font-size:30px;
+  font-weight:bold;
+  }
+p{
+  color:#ffff;
+  margin:2rem 200px;
+  font-weight:bold;
+}
 `
 const PostContainer = styled.div`
     height:210px;
@@ -34,7 +45,7 @@ const PostContainer = styled.div`
     box-shadow: 0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
     background-color: #fff;
     padding: 2rem;
-    top:100px;
+    top:110px;
     border-radius: 4px;
    position:absolute;
 `
@@ -45,8 +56,11 @@ const Home = () => {
   return (
     <HomeContainer>
       <TopContainer>
-        <h1>home page</h1>
-        <PostContainer/>
+        <span>Achetez ou vendez votre voiture avec le paiement sécurisé !</span>
+        <p>Trouvez la bonne affaire parmi les millions de petites annonces leboncoin</p>
+        <PostContainer>
+
+        </PostContainer>
       </TopContainer>
     </HomeContainer>
   )
