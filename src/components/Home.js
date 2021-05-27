@@ -4,6 +4,8 @@ import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownO
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
+import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -173,8 +175,48 @@ const PriceButton = styled(Link)`
   margin-bottom:0px;
   color:#000;
   font-size:14px;
-
 `
+const ResBtn = styled.div`
+  height:40px;
+  width:229.69px;
+  color:#fff;
+  font-size:12px;
+  font-weight:bold;
+ background:#4183D7;
+ padding:10px 16px;
+ position:absolute;
+ top:300px;
+ left:40%;
+ right:60%;
+ border-radius:5px;
+ 
+`
+const AnBtn = styled.div`
+  height:40px;
+  width:211.98px;
+  
+ background:#ff6e14;
+ padding:10px 0px;
+ position:absolute;
+ top:370px;
+ left:41%;
+ right:59%;
+ border-radius:5px;
+ margin:0px 10px 0px 0px;
+  padding:0px 0px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  span{
+    padding-left:2px;
+    color:#ffff;
+    font-size:14px;
+    font-weight:bold;
+    margin:0px;
+
+  }
+`
+
 
 const Home = () => {
   return (
@@ -233,6 +275,11 @@ const Home = () => {
             </CbContainer>
           </PostBottomWrapp>
         </PostContainer>
+        <ResBtn>Rechercher(69 450 résultats)</ResBtn>
+        <AnBtn>
+            <span>Déposer une annoce</span>
+          <AddBoxOutlinedIcon style={{ color: '#fff', fontSize: '30px'}}/>
+        </AnBtn>
       </TopContainer>
     </HomeContainer>
   )
