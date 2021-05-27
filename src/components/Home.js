@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import '../leboncoin.css';
 import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 
 const HomeContainer = styled.div`
@@ -64,11 +65,10 @@ const PostTopWrapp = styled.div`
      margin-left:4px;
      background:#ff6e14
    }
-   label{
-     margin-left:4px;
-   }
+   
 `
 const PostMiddlepWrapp = styled.div`
+    margin-top:10px;
     height:40px;
     width:100%;
     display:flex;
@@ -82,6 +82,7 @@ const CatWrapp = styled.div`
     align-items:center;
     justify-content:flex-start;
     background: #f4f6f7;
+    cursor:pointer;
     
     span{
       color:#000;
@@ -122,10 +123,58 @@ const LocationWrapp = styled.div`
       outline:none;
       background: #f4f6f7;
       height:40px;
+      width:100%;
     }
 `
-const  PostBottomWrapp = styled.div``
+const PostBottomWrapp = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+`
+const CbContainer = styled.div`
+  display:flex;
+  align-items:center;
+  height:36px;
+  width:100%;
+  margin-top:5px;
+ p{
+  color: #1A1A1A;
+	font-size: 15px;
+  margin-left:16px;
+ }
+`
+const PrixContainer = styled.div`
+  height:36px;
+  width:100%;
+  margin-top:5px;
+`
+const BtnWrapper = styled.div`
+    border: 1px solid #cad1d9;
+    border-radius: 16px;
+    display: inline-block;
+    height: 100%;
+    width:57.03px;
+    transition: background-color .2s ease-in-out,border .2s ease-in-out;
+    max-width: 100%;
+    cursor: default;
+    background: #fff;
+    padding:auto auto;
+`
 
+const PriceButton = styled(Link)`
+  height:30px;
+  width:57.03px;
+  border-radius:50px;
+  text-decoration:none;
+  color:#000;
+  margin-left:15px;
+  margin-top:15px;
+  margin-bottom:0px;
+  color:#000;
+  font-size:14px;
+
+`
 
 const Home = () => {
   return (
@@ -162,6 +211,27 @@ const Home = () => {
               <input type="text"  placeholder='Saisissez une ville et un rayon '/>
             </LocationWrapp>
           </PostMiddlepWrapp>
+          <PostBottomWrapp>
+            <PrixContainer>
+              <BtnWrapper>
+                <PriceButton>Prix</PriceButton>
+                </BtnWrapper>
+            </PrixContainer>
+            <CbContainer>
+              <div>
+          <label className="switch">
+          <input type="checkbox" id="togBtn"/>
+          <div className="slider round">
+            <span className="on">ON</span>
+            <span className="off">OFF</span>
+          </div>
+              </label>
+              </div>
+              <div> 
+              <p >Voir également les annonces disponibles en livraison</p>
+              </div>
+            </CbContainer>
+          </PostBottomWrapp>
         </PostContainer>
       </TopContainer>
     </HomeContainer>
