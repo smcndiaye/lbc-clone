@@ -5,17 +5,17 @@ import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBullete
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
-
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import Categories from './Categories';
+import {Data} from './Data';
 
 const HomeContainer = styled.div`
 position:relative;
 background:#ffff;
   width:1033px;
-  height:100vh;
-  max-width: 1066px;
+  height:1066px;
+  ${'' /* max-width: 1066px; */}
   margin:0 auto;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
 
@@ -189,7 +189,7 @@ const ResBtn = styled.div`
  left:40%;
  right:60%;
  border-radius:5px;
- 
+ cursor:pointer;
 `
 const AnBtn = styled.div`
   height:40px;
@@ -207,6 +207,7 @@ const AnBtn = styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
+  cursor:pointer;
   span{
     padding-left:2px;
     color:#ffff;
@@ -216,8 +217,27 @@ const AnBtn = styled.div`
 
   }
 `
-
-
+const CategorieContainer = styled.div`
+  height:130px;
+  width:100%;
+  position:absolute;
+  top:530px;
+  display:flex;
+  overflow:hidden;
+  white-space: nowrap;
+`
+const CatHeadWrapp = styled.div`
+  height:36px;
+  width:100%;
+  margin-left:8px;
+  position:absolute;
+  top:500px;
+  p{
+    font-size:25px;
+    font-weight:bold;
+    color:#1a1a1a;
+  }
+`
 const Home = () => {
   return (
     <HomeContainer>
@@ -281,6 +301,19 @@ const Home = () => {
           <AddBoxOutlinedIcon style={{ color: '#fff', fontSize: '30px'}}/>
         </AnBtn>
       </TopContainer>
+      <CatHeadWrapp>
+        <p>Top Categories</p>
+      </CatHeadWrapp>
+      <CategorieContainer>
+        {Data.map((item, index) => {
+          return <Categories key={index}
+            title={item.title}
+            image={item.image}
+            alt={item.alt}
+          />
+      })}
+      </CategorieContainer>
+      
     </HomeContainer>
   )
 }
