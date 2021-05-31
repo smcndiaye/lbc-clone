@@ -1,6 +1,7 @@
 import React from 'react';
 import '../leboncoin.css';
-import ImageM from './image-11.jpeg'
+import ImageM from './image-11.jpeg';
+import ComunaunteImg from './communaute-7491b632.png';
 import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
@@ -59,7 +60,7 @@ const HomeContainer = styled.div`
 position:relative;
 background:#ffff;
   width:1033px;
-  height:1266px;
+  height:1866px;
   ${'' /* max-width: 1066px; */}
   margin:0 auto;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
@@ -304,8 +305,52 @@ const SelectList = styled.div`
     font-weight:bold;
   }
 `
+const ComDiv = styled.div`
+  position:absolute;
+  top:1300px;
+  height:200px;
+  width:969px;
+  background:url(${ComunaunteImg});
+  margin-left:20px;
+  background-repeat: no-repeat;
+  background-color: #fef0e9;
+  background-position: 100% 100%;
+  padding:16px 24px;
+  span{
+    font-size:18px;
+    margin-left:10px;
+    font-weight:bold;
+    
+  }
+  br{
+      padding-left:10px;
+    }
+  p{
+    margin-left:10px;
+  }
+`
 
+const CBtn = styled.div`
+  height:40px;
+  width:211.98px;
+ background:#ff6e14;
+ padding:10px 0px;
+ border-radius:5px;
+ margin:0px 10px 0px 0px;
+  padding:0px 0px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  span{
+    padding-left:2px;
+    color:#ffff;
+    font-size:14px;
+    font-weight:bold;
+    margin:0px;
 
+  }
+`
 const Home = () => {
  
   const next = () => {
@@ -414,9 +459,14 @@ const Home = () => {
         return <option key={index}>{regeion}</option>
       })}
     </Form.Control>
-        
     </Form.Group>
         </SelectList>
+    <ComDiv>
+        <span>Avoir une passion c'est bien ! <br /></span>
+        <span>La partager avec les autres, c'est mieux !</span>
+        <p>Jardinage, mode, vélo... Ils sont nombreux à en parler sur <br/> la Communauté leboncoin ! Rejoignez-les !</p>
+    <CBtn><span>Découvrir la Communauté</span></CBtn>
+    </ComDiv>
     </HomeContainer>
   )
 }
