@@ -1,20 +1,63 @@
 import React from 'react';
 import '../leboncoin.css';
+import ImageM from './image-11.jpeg'
 import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
 import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
-import styled from 'styled-components';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+import styled, {css} from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Categories from './Categories';
 import {Data} from './Data';
+import MyMap from './MyMap';
+
+
+const ArrowBtn = css`
+  height:50px;
+  width:50px;
+  margin-right:1rem;
+  border-radius:50px;
+  background:#fff;
+  cursor:pointer;
+  border-radius:50px;
+  user-select:none;
+  transition:0.3s;
+  color:gray;
+  &:hover{
+   background: #ff6e14;
+   transform:scale(1.05);
+  }
+
+`
+
+const PrevArrow = styled(MdKeyboardArrowLeft)`
+  ${ArrowBtn};
+  margin-left:1rem;
+`
+const NextArrow = styled(MdKeyboardArrowRight)`
+  ${ArrowBtn};
+  right:50px;
+`
+const SliderButtons = styled.div`
+  z-index:10;
+  position:absolute;
+  top:580px;
+  ${'' /* right:50px; */}
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+`
+
+
+
 
 const HomeContainer = styled.div`
 position:relative;
 background:#ffff;
   width:1033px;
-  height:1066px;
+  height:1166px;
   ${'' /* max-width: 1066px; */}
   margin:0 auto;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
@@ -218,13 +261,14 @@ const AnBtn = styled.div`
   }
 `
 const CategorieContainer = styled.div`
-  height:130px;
+  height:150px;
   width:100%;
   position:absolute;
   top:530px;
   display:flex;
   overflow:hidden;
-  white-space: nowrap;
+  white-space: nowrap; 
+  
 `
 const CatHeadWrapp = styled.div`
   height:36px;
@@ -238,7 +282,31 @@ const CatHeadWrapp = styled.div`
     color:#1a1a1a;
   }
 `
+const MapWrapper = styled.div`
+  position:absolute;
+  top: 800px;
+  height:230px;
+  width:1033px;
+  display:flex;
+  align-items:center;
+  margin:20px 250px;
+`
+
 const Home = () => {
+ 
+  const next = () => {
+      const conent = document.querySelector('#content');
+      conent.scrollLeft += 190;
+      
+  }
+  
+  
+  const prev = () => {
+    const conent = document.querySelector('#content');
+    conent.scrollLeft -= 190;
+    
+}
+  
   return (
     <HomeContainer>
       <TopContainer>
@@ -304,16 +372,26 @@ const Home = () => {
       <CatHeadWrapp>
         <p>Top Categories</p>
       </CatHeadWrapp>
-      <CategorieContainer>
+      
+        <CategorieContainer  id='content' >
+        
         {Data.map((item, index) => {
           return <Categories key={index}
-            title={item.title}
-            image={item.image}
-            alt={item.alt}
-          />
-      })}
-      </CategorieContainer>
-      
+                title={item.title}
+                image={item.image}
+                alt={item.alt}
+            />
+        })}
+        </CategorieContainer>
+        <SliderButtons>
+            <PrevArrow  onClick={prev} />
+            <NextArrow   onClick={next} />
+        </SliderButtons>
+        <MapWrapper>
+        <img src={ImageM} alt='Mimage' style={{height:'195px',width:'288px',cursor:'pointer'}}/>
+        <MyMap/>
+        </MapWrapper>
+        
     </HomeContainer>
   )
 }
