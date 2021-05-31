@@ -7,12 +7,14 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+import { Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, {css} from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Categories from './Categories';
 import {Data} from './Data';
 import MyMap from './MyMap';
-
+import {Regions}  from './Data' 
 
 const ArrowBtn = css`
   height:50px;
@@ -57,7 +59,7 @@ const HomeContainer = styled.div`
 position:relative;
 background:#ffff;
   width:1033px;
-  height:1166px;
+  height:1266px;
   ${'' /* max-width: 1066px; */}
   margin:0 auto;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
@@ -289,8 +291,20 @@ const MapWrapper = styled.div`
   width:1033px;
   display:flex;
   align-items:center;
-  margin:20px 250px;
+  margin:20px 50px;
+  padding-left:150px;
 `
+const SelectList = styled.div`
+  position:absolute;
+  height:38px;
+  width:300px;
+  top:1100px;
+  right:200px;
+  span{
+    font-weight:bold;
+  }
+`
+
 
 const Home = () => {
  
@@ -391,7 +405,18 @@ const Home = () => {
         <img src={ImageM} alt='Mimage' style={{height:'195px',width:'288px',cursor:'pointer'}}/>
         <MyMap/>
         </MapWrapper>
+        <SelectList>
+       
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label ><span>Région</span></Form.Label>
+    <Form.Control as="select">
+      {Regions.map((regeion,index)=>{
+        return <option key={index}>{regeion}</option>
+      })}
+    </Form.Control>
         
+    </Form.Group>
+        </SelectList>
     </HomeContainer>
   )
 }
