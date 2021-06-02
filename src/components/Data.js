@@ -91,3 +91,16 @@ export const Regions = [
   'Guyane',
   'Réunion'
 ]
+
+export const Pays = [
+  'Autriche',
+  'France',
+  'Brésil',
+  'Biélorussie',
+  'Colombie',
+  'Republiaue Dominica',
+  'Espagne',
+  'Hongrie',
+  'Irlande',
+  'Italie'
+]

@@ -60,12 +60,11 @@ const HomeContainer = styled.div`
 position:relative;
 background:#ffff;
   width:1033px;
-  height:1866px;
+  height:2380px;
   ${'' /* max-width: 1066px; */}
   margin:0 auto;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
-
-`
+` 
 const TopContainer = styled.div`
     content: "";
     display: block;
@@ -351,6 +350,63 @@ const CBtn = styled.div`
 
   }
 `
+
+const Paragraph = styled.div`
+  position:absolute;
+  top:1530px;
+  height:68px;
+  width:969px;
+  margin-left:20px;
+  padding:16px 24px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  span{
+  margin-left:10px;
+  font-size:12px;
+  margin-top:0px;
+   font-weight:bold;
+   text-align: center;
+  }
+`
+const RegWrapper = styled.div`
+  height:734px;
+  position:absolute;
+  top:1650px;
+  width:100%;
+  background:#f4f6f7;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,240px)
+`
+
+const RegDiv = styled.div`
+  height:148px;
+  width:240px;
+  border-bottom: 1px solid #cad1d9;
+  span{
+    color:#1a1a1a;
+    font-size:14px;
+    font-weight:bold;
+    :hover{
+      color:#ff6e14;
+    }
+  }
+  ul{
+    list-style:none;
+  }
+  li{
+    padding-top:5px;
+    font-size:12px;
+    color:#8191a0;
+    cursor:pointer;
+    :hover{
+      color:#ff6e14;
+    }
+  }
+ 
+`
+
+
 const Home = () => {
  
   const next = () => {
@@ -466,7 +522,166 @@ const Home = () => {
         <span>La partager avec les autres, c'est mieux !</span>
         <p>Jardinage, mode, vélo... Ils sont nombreux à en parler sur <br/> la Communauté leboncoin ! Rejoignez-les !</p>
     <CBtn><span>Découvrir la Communauté</span></CBtn>
-    </ComDiv>
+      </ComDiv>
+      <Paragraph>
+        <span>Avec leboncoin, trouvez la bonne affaire sur le site référent de petites annonces de particulier à particulier et de professionnels. Avec des millions de petites annonces, trouvez la bonne occasion dans nos catégories voiture, immobilier, emploi, vacances, mode, maison, jeux vidéo, etc… Déposez une annonce gratuite en toute simplicité pour vendre, rechercher, donner vos biens de seconde main ou promouvoir vos services. Achetez en toute sécurité avec notre système de paiement en ligne et de livraison pour les annonces éligibles.</span>
+      </Paragraph>
+      <RegWrapper>
+      <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+            <li><a href="#"></a><span>NOS APPLICATIONS</span></li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href=""></a><span>EMPOI</span></li>
+            <li><a href=""></a>Offres d'emploi</li>
+            <li><a href=""></a>Offres d'emploi Cadres</li>
+            <li><a href=""></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href=""></a><span>EMPOI</span></li>
+            <li><a href=""></a>Offres d'emploi</li>
+            <li><a href=""></a>Offres d'emploi Cadres</li>
+            <li><a href=""></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        <RegDiv>
+          <ul>
+            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a>Offres d'emploi</li>
+            <li><a href="#"></a>Offres d'emploi Cadres</li>
+            <li><a href="#"></a>Formations Professionnelles</li>
+          </ul>
+        </RegDiv>
+        
+      </RegWrapper>
     </HomeContainer>
   )
 }
