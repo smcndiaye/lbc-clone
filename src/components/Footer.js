@@ -20,6 +20,12 @@ const FooterWrapper = styled.div`
   margin:0 auto;
   color:#fff;
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
+  @media screen and (max-width:768px){
+    width:100vw;
+    overflow: hidden;
+	  white-space: nowrap;
+    margin:0px;
+  }
 `
 
 const TopFootWrapper = styled.div`
@@ -29,7 +35,8 @@ const TopFootWrapper = styled.div`
   width:100%;
   background:#474747;
   display:grid;
-  grid-template-columns:repeat(auto-fit,240px)
+  grid-template-columns:repeat(auto-fit,240px);
+ 
 `
 
 const FootDiv = styled.div`
@@ -79,6 +86,9 @@ const MidFoot = styled.div`
       color:#ffff;
       padding:0 2px;
     }
+    @media screen and (max-width:768px){
+    display:none;
+  }
 `
 const AppWrapper = styled.div`
     width:240px;
@@ -92,6 +102,9 @@ const AppWrapper = styled.div`
       width:100px;
       margin-left:2px;
     }
+    @media screen and (max-width:768px){
+    display:none;
+  }
 `
 
 const SelectList = styled.div`
@@ -102,6 +115,9 @@ const SelectList = styled.div`
   right:35px;
   span{
     font-weight:bold;
+  }
+  @media screen and (max-width:768px){
+    display:none;
   }
 `
 const BottomFoot = styled.div`

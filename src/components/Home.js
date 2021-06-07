@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../leboncoin.css';
 import ImageM from './image-11.jpeg';
 import ComunaunteImg from './communaute-7491b632.png';
@@ -8,6 +8,18 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
+import WorkOutlineOutlinedIcon from '@material-ui/icons/WorkOutlineOutlined';
+import DirectionsCarOutlinedIcon from '@material-ui/icons/DirectionsCarOutlined';
+import SportsBasketballIcon from '@material-ui/icons/SportsBasketball';
+import HomeIcon from '@material-ui/icons/Home';
+import EventSeatIcon from '@material-ui/icons/EventSeat';
+import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
+import PetsIcon from '@material-ui/icons/Pets';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { BsTools } from 'react-icons/bs';
+import { GiClothes } from 'react-icons/gi';
+import { FaHandshake } from 'react-icons/fa';
 import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled, {css} from 'styled-components/macro';
@@ -16,6 +28,7 @@ import Categories from './Categories';
 import {Data} from './Data';
 import MyMap from './MyMap';
 import {Regions}  from './Data' 
+import Options from './Options';
 
 const ArrowBtn = css`
   height:50px;
@@ -57,14 +70,22 @@ const SliderButtons = styled.div`
 
 
 const HomeContainer = styled.div`
-position:relative;
-background:#ffff;
+  position:relative;
+  background:#ffff;
   width:1033px;
   height:2380px;
-  ${'' /* max-width: 1066px; */}
+  max-width: calc(1066px + 2rem);
   margin:0 auto;
+
   box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
-` 
+  @media screen and (max-width:768px){
+    width:100vw;
+    overflow: hidden;
+	  white-space: nowrap;
+    margin:0px;
+  }
+  
+`
 const TopContainer = styled.div`
     content: "";
     display: block;
@@ -75,17 +96,22 @@ const TopContainer = styled.div`
     width:1033px;
     max-width: 1066px;
     overflow:hidden;
+    white-space:nowrap;
 span{
   color:#ffff;
   text-align:center;
   margin:4rem 100px;
   font-size:30px;
   font-weight:bold;
+  
   }
 p{
   color:#ffff;
   margin:2rem 200px;
   font-weight:bold;
+  @media screen and (max-width:768px){
+    display:none;
+  }
 }
 `
 const PostContainer = styled.div`
@@ -112,6 +138,9 @@ const PostTopWrapp = styled.div`
      margin-left:4px;
      background:#ff6e14
    }
+   @media screen and (max-width:768px){
+    display:none;
+  }
    
 `
 const PostMiddlepWrapp = styled.div`
@@ -236,7 +265,7 @@ const ResBtn = styled.div`
  border-radius:5px;
  cursor:pointer;
 `
-const AnBtn = styled.div`
+const AnBtn = styled(Link)`
   height:40px;
   width:211.98px;
   
@@ -261,6 +290,9 @@ const AnBtn = styled.div`
     margin:0px;
 
   }
+  &:hover{
+    text-decoration:none;
+  }
 `
 const CategorieContainer = styled.div`
   height:150px;
@@ -279,6 +311,7 @@ const CatHeadWrapp = styled.div`
   position:absolute;
   top:500px;
   p{
+    margin-left:15px;
     font-size:25px;
     font-weight:bold;
     color:#1a1a1a;
@@ -302,6 +335,9 @@ const SelectList = styled.div`
   right:200px;
   span{
     font-weight:bold;
+  }
+  @media screen and (max-width:768px){
+    display:none;
   }
 `
 const ComDiv = styled.div`
@@ -405,27 +441,45 @@ const RegDiv = styled.div`
   }
  
 `
+const CatOps = styled.div`
+    position:absolute;
+    top:110px;
+    height:570px;
+    width:890px;
+    box-shadow: 0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
+    background:#ffff;
+    z-index:100;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,290px);
+    transform:${props=> props.show ? 'translateY(0)':'translateY(-200%)'};
+`
+const CatOpsDiv = styled.div`
+  height:100%;
+  width:290px;
+  
+`
+
+
+
+
 
 
 const Home = () => {
- 
+  const [openStatus, setOpenStatus] = useState(false);
   const next = () => {
       const conent = document.querySelector('#content');
-      conent.scrollLeft += 190;
-      
+      conent.scrollLeft += 190;   
   }
-  
-  
   const prev = () => {
     const conent = document.querySelector('#content');
     conent.scrollLeft -= 190;
-    
 }
   
   return (
     <HomeContainer>
+      
       <TopContainer>
-        <span>Achetez ou vendez votre voiture avec le paiement sécurisé !</span>
+        <span >Achetez ou vendez votre voiture avec le paiement sécurisé !</span>
         <p>Trouvez la bonne affaire parmi les millions de petites annonces leboncoin</p>
         <PostContainer>
           <PostTopWrapp>
@@ -439,7 +493,32 @@ const Home = () => {
             </div>
           </PostTopWrapp>
           <PostMiddlepWrapp>
-            <CatWrapp>
+            <CatOps  show={openStatus}>
+              <CatOpsDiv onClick={()=>setOpenStatus(false)}>
+                <Options   title='Toute Catégories' Icon={FormatListBulletedOutlinedIcon}/>
+                <Options title='Vacances' Icon={ WbSunnyOutlinedIcon}/>
+                <Options title='Emploi' Icon={ WorkOutlineOutlinedIcon}/>
+                <Options title='Véhicule' Icon={ DirectionsCarOutlinedIcon}/>
+                <Options title='Immobilier' Icon={ HomeIcon}/>
+                <Options title='Mode' Icon={ GiClothes}/>
+                <Options title='Maison' Icon={ EventSeatIcon}/>
+                <Options title='Multimédia' Icon={ PhoneAndroidIcon}/>
+                <Options title='Loisirs' Icon={ SportsBasketballIcon}/>
+                <Options title='Animaux' Icon={ PetsIcon}/>
+                <Options title='Matériel Professionnel' Icon={ BsTools}/>
+                <Options title='Services ' Icon={ FaHandshake}/>
+                <Options title='Divers' Icon={ MoreHorizIcon}/>
+              </CatOpsDiv>
+              <CatOpsDiv onClick={()=>setOpenStatus(false)}>
+                <Options title='Vacances' Icon={ WbSunnyOutlinedIcon}/>
+                <Options title='Locations & Gîtes' />
+                <Options title="Chambres d'hôtes" />
+                <Options title='Hébergements insolites' />
+                <Options title='Hôtels' />
+                <Options title='Ventes privées vacances' />
+              </CatOpsDiv>
+          </CatOps>
+            <CatWrapp onClick={()=>setOpenStatus(!openStatus)}>
               <FormatListBulletedOutlinedIcon  />
               <span>Categories</span>
               <KeyboardArrowDownOutlinedIcon style={{marginTop:'4px',marginLeft:'44px',fontSize:'30px',fill: 'rgb(168, 180, 192)',
@@ -479,7 +558,7 @@ const Home = () => {
           </PostBottomWrapp>
         </PostContainer>
         <ResBtn>Rechercher(69 450 résultats)</ResBtn>
-        <AnBtn>
+        <AnBtn to='/deposer-annoce'>
             <span>Déposer une annoce</span>
           <AddBoxOutlinedIcon style={{ color: '#fff', fontSize: '30px'}}/>
         </AnBtn>
@@ -538,7 +617,7 @@ const Home = () => {
         </RegDiv>
         <RegDiv>
           <ul>
-            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a><span>VACANCES</span></li>
             <li><a href="#"></a>Offres d'emploi</li>
             <li><a href="#"></a>Offres d'emploi Cadres</li>
             <li><a href="#"></a>Formations Professionnelles</li>
@@ -546,7 +625,7 @@ const Home = () => {
         </RegDiv>
         <RegDiv>
           <ul>
-            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a><span>MODE</span></li>
             <li><a href="#"></a>Offres d'emploi</li>
             <li><a href="#"></a>Offres d'emploi Cadres</li>
             <li><a href="#"></a>Formations Professionnelles</li>
@@ -554,7 +633,7 @@ const Home = () => {
         </RegDiv>
         <RegDiv>
           <ul>
-            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a><span>MAISON</span></li>
             <li><a href="#"></a>Offres d'emploi</li>
             <li><a href="#"></a>Offres d'emploi Cadres</li>
             <li><a href="#"></a>Formations Professionnelles</li>
@@ -562,7 +641,7 @@ const Home = () => {
         </RegDiv>
         <RegDiv>
           <ul>
-            <li><a href="#"></a><span>EMPOI</span></li>
+            <li><a href="#"></a><span>VÉHICULES</span></li>
             <li><a href="#"></a>Offres d'emploi</li>
             <li><a href="#"></a>Offres d'emploi Cadres</li>
             <li><a href="#"></a>Formations Professionnelles</li>
@@ -570,7 +649,7 @@ const Home = () => {
         </RegDiv>
         <RegDiv>
           <ul>
-            <li><a href=""></a><span>EMPOI</span></li>
+            <li><a href=""></a><span>LOISIRS</span></li>
             <li><a href=""></a>Offres d'emploi</li>
             <li><a href=""></a>Offres d'emploi Cadres</li>
             <li><a href=""></a>Formations Professionnelles</li>

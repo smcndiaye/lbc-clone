@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
@@ -26,6 +27,12 @@ const NavContainer = styled.nav`
     box-shadow:0 -1px 4px 0 rgb(26 26 26 / 8%), 0 4px 8px 0 rgb(26 26 26 / 12%);
   }
   z-index:999;
+  @media screen and (max-width:768px){
+    width:100vw;
+    overflow: hidden;
+	  white-space: nowrap;
+    margin:0px;
+  }
 `
 const LeftContainer = styled.div`
 display:flex;
@@ -37,11 +44,12 @@ display:flex;
 `
 
 const LogoContainer = styled.img`
-background:#ffff;
+  background:#ffff;
   width:174px;
   height:100%;
+  object-fit:cover;
 `
-const AnnoceContainer = styled.div`
+const AnnoceContainer = styled(Link)`
   
   background:#ff6e14;
   width:201.98px;
@@ -58,6 +66,9 @@ const AnnoceContainer = styled.div`
     font-weight:bold;
 
   }
+  &:hover{
+    text-decoration:none;
+  }
 `
 const SearchContainer = styled.div`
   margin-left:20px;
@@ -73,6 +84,7 @@ const SearchContainer = styled.div`
     outline-width:none;
     border-width:0px;
   }
+  
 `
 
 
@@ -104,8 +116,10 @@ const Header = () => {
     
     <NavContainer>
       <LeftContainer>
-      <LogoContainer src={logo} alt='logo' />
-      <AnnoceContainer>
+        <Link style={{height:'100%'}} to='/'>
+          <LogoContainer src={logo} alt='logo' />
+          </Link>
+      <AnnoceContainer to='/deposer-annoce'>
         <AddBoxOutlinedIcon className='addIcon' />
         <span>Déposer une annoce</span>
       </AnnoceContainer>
